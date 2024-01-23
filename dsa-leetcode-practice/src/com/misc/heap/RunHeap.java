@@ -15,8 +15,6 @@ public class RunHeap {
 
     System.out.println(myHeap.getHeap());
 
-    myHeap.remove(95);
-
     System.out.println(myHeap.getHeap());
 
     myHeap.insert(100);

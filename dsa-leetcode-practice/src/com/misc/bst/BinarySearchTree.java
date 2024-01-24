@@ -1,8 +1,48 @@
 package com.misc.bst;
 
+import org.w3c.dom.Node;
+
 public class BinarySearchTree {
 
   public Node root;
+
+  public boolean rContains(int i) {
+    return rContains(root, i);
+  }
+
+  private boolean rContains(Node root, int value) {
+    if (root == null) {
+      return false;
+    }
+    if (root.value == value) {
+      return true;
+    }
+
+    if (root.value > value) {
+      return rContains(root.left, value);
+    } else {
+      return rContains(root.right, value);
+    }
+  }
+
+  public Node rInsert(int value) {
+    if (root == null) {
+      root = new Node(value);
+    }
+    return rInsert(root, value);
+  }
+
+  private Node rInsert(Node currentNode, int value) {
+    if (currentNode == null) {
+      return new Node(value);
+    }
+    if (value < currentNode.value) {
+      currentNode.left = rInsert(currentNode.left, value);
+    } else {
+      currentNode.right = rInsert(currentNode.right, value);
+    }
+    return currentNode;
+  }
 
   class Node {
 

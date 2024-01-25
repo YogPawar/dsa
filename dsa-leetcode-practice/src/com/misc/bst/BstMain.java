@@ -4,20 +4,20 @@ public class BstMain {
 
   public static void main(String[] args) {
     BinarySearchTree bst = new BinarySearchTree();
-    System.out.println(bst.root);
 
     bst.insert(47);
     bst.insert(21);
     bst.insert(76);
-    bst.insert(55);
-    bst.insert(65);
-    bst.insert(2);
-    bst.insert(67);
-    bst.insert(89);
-    bst.insert(88);
-    bst.insert(4);
+    bst.insert(18);
+    bst.insert(27);
+    bst.insert(52);
+    bst.insert(82);
 
-    System.out.println(bst.contains(444));
+    System.out.println("BFS" + bst.BFS());
+    System.out.println("DFS-PreOrder" + bst.DFSPreOrder());
+    System.out.println("DFS-PostOrder" + bst.DFSPostOrder());
+    System.out.println("DFS-InOrder" + bst.DFSInorder());
+
 
 
   }

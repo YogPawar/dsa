@@ -14,6 +14,15 @@ public class RecusrsivSearchBST {
     boolean isContain = myBst.rContains(5);
     System.out.println(isContain);
     System.out.println(myBst.rContains(0));
+
+    System.out.println(myBst.minValue(myBst.root));
+    System.out.println(myBst.minValue(myBst.root.right));
+
+    System.out.println(myBst.rDelete(1).value);
+    System.out.println(myBst.rContains(1));
+
+
+
   }
 
 }

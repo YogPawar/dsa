@@ -1,4 +1,4 @@
-package dsa.com.sorting.bubble.selection;
+package dsa.com.sorting.selection;
 
 import java.util.Arrays;
 

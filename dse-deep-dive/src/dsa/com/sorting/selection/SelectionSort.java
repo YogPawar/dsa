@@ -1,4 +1,4 @@
-package dsa.com.sorting.bubble.selection;
+package dsa.com.sorting.selection;
 
 public class SelectionSort {
 

@@ -53,6 +53,52 @@ public class MergeSort {
     int[] unSortedArray = {4, 6, 2, 1, 8, 43, 5};
 
     System.out.println(Arrays.toString(mergeSort(unSortedArray)));
+
+    System.out.println("dcending Order Array : " + Arrays.toString(dMerge(unSortedArray)));
+  }
+
+
+  public static int[] mergeInDecendingOrder(int[] left, int[] right) {
+    int[] combined = new int[left.length + right.length];
+    int i = 0;
+    int j = 0;
+    int index = 0;
+    while (i < left.length && j < right.length) {
+      if (left[i] > right[j]) {
+        combined[index] = left[i];
+        i++;
+        index++;
+      } else {
+        combined[index] = right[j];
+        index++;
+        j++;
+      }
+    }
+
+    while (i < left.length) {
+      combined[index] = left[i];
+      index++;
+      i++;
+    }
+    while (j < right.length) {
+      combined[index] = right[j];
+      index++;
+      j++;
+    }
+    return combined;
+  }
+
+  public static int[] dMerge(int[] array) {
+
+    if (array.length == 1) {
+      return array;
+    }
+    int mid = array.length / 2;
+
+    int[] left = dMerge(Arrays.copyOfRange(array, 0, mid));
+    int[] right = dMerge(Arrays.copyOfRange(array, mid, array.length));
+
+    return mergeInDecendingOrder(left, right);
   }
 
 }

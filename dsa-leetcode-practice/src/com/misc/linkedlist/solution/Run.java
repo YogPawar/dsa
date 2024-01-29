@@ -3,23 +3,45 @@ package com.misc.linkedlist.solution;
 public class Run {
 
   public static void main(String[] args) {
-    LinkedList ll = new LinkedList(5);
 
-    ll.append(6);
-    ll.append(7);
-    ll.append(30);
-    ll.append(68);
-    ll.append(64);
-    ll.append(86);
-    ll.append(96);
-    ll.append(46);
+    // Create a new LinkedList and append values to it
+    LinkedList ll = new LinkedList(3);
+    ll.append(5);
+    ll.append(8);
+    ll.append(10);
+    ll.append(2);
+    ll.append(1);
 
-    ll.printList();
+    // Print the list before partitioning
+    System.out.println("LL before partitionList:");
+    ll.printList(); // Output: 3 5 8 10 2 1
 
-    System.out.println("Middle Element is : " + ll.findMiddleElement().value);
-    System.out.println("Is LL has loop : " + ll.hasLoop());
+    // Call the partitionList method with x = 5
+    ll.partitionList(5);
 
-    System.out.println(ll.findKthFromEnd(3).value);
+    // Print the list after partitioning
+    System.out.println("LL after partitionList:");
+    ll.printList(); // Output: 3 2 1 5 8 10
+
+        /*
+            EXPECTED OUTPUT:
+            ----------------
+            LL before partition_list:
+            3
+            5
+            8
+            10
+            2
+            1
+            LL after partition_list:
+            3
+            2
+            1
+            5
+            8
+            10
+
+        */
+
   }
-
 }

@@ -31,6 +31,28 @@ In this problem, you should use the two-pointer technique to efficiently find th
 
 ## Solution Explanation 
 
+    public Node findKthFromEnd(int k) {
+        Node slow = head;
+        Node fast = head;
+ 
+        for (int i = 0; i < k; i++) {
+            if (fast == null) {
+                return null;
+            }
+            fast = fast.next;
+        }
+ 
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+ 
+        return slow;
+    }
+
+
+
+
 This code defines a method called findKthFromEnd inside a LinkedList class, which takes an integer k as input and returns the kth node from the end of the LinkedList.
 
 
@@ -44,3 +66,32 @@ After moving the fast pointer k steps ahead, the method enters a while loop. Thi
 Inside the while loop, both the slow and fast pointers move one step at a time. Since the fast pointer is already k steps ahead of the slow pointer, when the fast pointer reaches the end of the LinkedList, the slow pointer will be at the kth node from the end.
 
 Finally, the method returns the slow pointer, which now points to the kth node from the end of the LinkedList.
+
+
+
+
+
+Code with inline comments:
+
+
+
+    public Node findKthFromEnd(int k) {
+        Node slow = head; // Initialize slow pointer at head
+        Node fast = head; // Initialize fast pointer at head
+    
+        // Move fast pointer k steps ahead
+        for (int i = 0; i < k; i++) {
+            if (fast == null) { // If k is out of bounds, return null
+                return null;
+            }
+            fast = fast.next; // Move the fast pointer to the next node
+        }
+     
+        // Move both pointers until fast reaches the end
+        while (fast != null) {
+            slow = slow.next; // Move the slow pointer to the next node
+            fast = fast.next; // Move the fast pointer to the next node
+        }
+     
+        return slow; // Return the kth node from the end (slow pointer)
+}

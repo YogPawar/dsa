@@ -15,7 +15,7 @@ public class ValidParentheses {
     for (int i = 0; i < s.length(); i++) {
       Character currentChar = s.charAt(i);
       if (map.containsKey(currentChar)) {
-        char pop = stack.size() != 0 ? stack.pop() : '#';
+        char pop = !stack.isEmpty() ? stack.pop() : '#';
         if (pop != map.get(currentChar)) {
           return false;
         }

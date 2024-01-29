@@ -168,4 +168,9 @@ public class LinkedList {
     prev1.next = dummy2.next;
     head = dummy1.next;
   }
+
+
+  public void removDuplicate(){
+
+  }
 }

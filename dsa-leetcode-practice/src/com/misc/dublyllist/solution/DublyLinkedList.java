@@ -96,7 +96,7 @@ public class DublyLinkedList {
 
     }
 
-     temp = head;
+    temp = head;
     head = tail;
     tail = temp;
   }

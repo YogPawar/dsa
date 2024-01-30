@@ -13,7 +13,7 @@ public class ReverseStringStack {
     while (!stack.isEmpty()) {
       reverseString = reverseString.concat(stack.pop().toString());
     }
-    return  reverseString;
+    return reverseString;
   }
 
   public static void main(String[] args) {

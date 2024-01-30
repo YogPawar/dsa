@@ -22,7 +22,6 @@ public class RecusrsivSearchBST {
     System.out.println(myBst.rContains(1));
 
 
-
   }
 
 }

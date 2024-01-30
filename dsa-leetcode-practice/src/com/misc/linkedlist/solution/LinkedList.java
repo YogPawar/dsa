@@ -170,7 +170,7 @@ public class LinkedList {
   }
 
 
-  public void removDuplicate(){
+  public void removDuplicate() {
 
   }
 }

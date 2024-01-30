@@ -64,10 +64,12 @@ public class DublyLinkedList {
     dl.append(8);
     dl.prepend(100);
     dl.append(200);
-    dl.printList();
-    System.out.println();
-    System.out.println("After Swap : ");
     dl.swapFirstLast();
+    dl.printList();
+
+    System.out.println();
+    System.out.println("Reverse List");
+    dl.reverse();
     dl.printList();
   }
 
@@ -79,5 +81,23 @@ public class DublyLinkedList {
     int temp = head.value;
     head.value = tail.value;
     tail.value = temp;
+  }
+
+
+  private void reverse() {
+    Node current = head;
+    Node temp = null;
+
+    while (current != null) {
+      temp = current.prev; //temp null;
+      current.prev = current.next;
+      current.next = temp;
+      current = current.prev;
+
+    }
+
+     temp = head;
+    head = tail;
+    tail = temp;
   }
 }

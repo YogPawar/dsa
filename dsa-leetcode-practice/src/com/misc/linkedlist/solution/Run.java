@@ -6,21 +6,23 @@ public class Run {
 
     // Create a new LinkedList and append values to it
     LinkedList ll = new LinkedList(3);
+    ll.append(3);
     ll.append(5);
-    ll.append(8);
-    ll.append(10);
-    ll.append(2);
-    ll.append(1);
-
+    ll.append(33);
+    ll.append(33);
+    ll.append(5);
     // Print the list before partitioning
-    System.out.println("LL before partitionList:");
-    ll.printList(); // Output: 3 5 8 10 2 1
+    //.out.println("LL before partitionList:");
+    // ll.printList(); // Output: 3 5 8 10 2 1
 
     // Call the partitionList method with x = 5
-    ll.partitionList(5);
+    // ll.partitionList(5);
 
     // Print the list after partitioning
-    System.out.println("LL after partitionList:");
+    // System.out.println("LL after partitionList:");
+    ll.printList();
+    System.out.println("After removing");
+    ll.removeDuplicateWithoutSet();
     ll.printList(); // Output: 3 2 1 5 8 10
 
         /*

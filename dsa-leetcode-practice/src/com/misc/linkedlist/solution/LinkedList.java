@@ -1,5 +1,8 @@
 package com.misc.linkedlist.solution;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LinkedList {
 
   private Node head;
@@ -38,7 +41,8 @@ public class LinkedList {
   public void printList() {
     Node temp = head;
     while (temp != null) {
-      System.out.println(temp.value);
+      System.out.print("->");
+      System.out.print(temp.value);
       temp = temp.next;
     }
   }
@@ -171,6 +175,42 @@ public class LinkedList {
 
 
   public void removDuplicate() {
+    if (length == 0 || length < 2) {
+      return;
+    }
+
+    Set<Integer> checkDupSet = new HashSet<>();
+    Node current = head;
+    Node prev = null;
+
+    while (current != null) {
+      if (checkDupSet.contains(current.value)) {
+        prev.next = current.next;
+        length -= 1;
+      } else {
+        checkDupSet.add(current.value);
+        prev = current;
+      }
+      current = current.next;
+    }
 
   }
+
+  public void removeDuplicateWithoutSet() {
+    Node current = head;
+    while (current != null) {
+      Node runner = current;
+      while (runner.next != null) {
+        if (runner.next.value == current.value) {
+          runner.next = runner.next.next;
+          length -= 1;
+        } else {
+          runner = runner.next;
+        }
+      }
+      current = current.next;
+
+    }
+  }
+
 }

@@ -55,12 +55,20 @@ public class EmployeeDoublyLinkedList {
     return (head == null);
   }
 
-  public EmployeeNode removeFront() {
+  public EmployeeNode removeFromFront() {
     if (isEmpty()) {
       return null;
     }
+
     EmployeeNode removeNode = head;
-    head = removeNode.getNext();
+
+    if (head.getNext() == null) {
+      tail = null;
+
+    } else {
+      head.getNext().setPrevious(null);
+    }
+    head = head.getNext();
     removeNode.setNext(null);
     size--;
     return removeNode;
@@ -71,5 +79,22 @@ public class EmployeeDoublyLinkedList {
     return tail;
   }
 
+  public EmployeeNode removeFromEnd() {
+    if (isEmpty()) {
+      return null;
+    }
+    EmployeeNode removeNode = tail;
+    if (tail.getPrevious() == null) {
+      head = null;
+      tail = null;
+    } else {
+      removeNode.getPrevious().setNext(null);
+      size--;
+      removeNode.setNext(null);
+      tail = removeNode.getPrevious();
+    }
+    return removeNode;
+
+  }
 
 }

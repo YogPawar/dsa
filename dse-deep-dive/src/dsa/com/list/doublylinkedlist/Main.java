@@ -22,6 +22,14 @@ public class Main {
 
     Set<Integer> checkDupSet = new HashSet<>();
     checkDupSet.add(2);
+
+    System.out.println(employees.removeFromEnd().getEmployee());
+
+    employees.printList();
+
+    System.out.println(employees.removeFromFront().getEmployee());
+
+    employees.printList();
   }
 
 }

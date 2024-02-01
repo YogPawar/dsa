@@ -14,7 +14,7 @@ public class Main {
     employees.addToFront(employee);
     employees.addToFront(employee1);
     employees.addToFront(employee2);
-
+/*
     employees.printList();
 
     employees.addToEnd(new Employee("Dumita", "Dane", 564));
@@ -27,7 +27,9 @@ public class Main {
 
     employees.printList();
 
-    System.out.println(employees.removeFromFront().getEmployee());
+    System.out.println(employees.removeFromFront().getEmployee());*/
+
+    employees.addBefore(new Employee("Ravi", "Pawar", 54), employee1);
 
     employees.printList();
   }

@@ -97,4 +97,30 @@ public class EmployeeDoublyLinkedList {
 
   }
 
+  public boolean addBefore(Employee addEmployee, Employee beforeEmployee) {
+    if (head == null) {
+      return false;
+    }
+    EmployeeNode current = head;
+    while (current != null && !current.getEmployee().getFirstName()
+        .equals(beforeEmployee.getFirstName())) {
+      current = current.getNext();
+    }
+    if (current == null) {
+      return false;
+    }
+    EmployeeNode newEmployee = new EmployeeNode(addEmployee);
+    newEmployee.setPrevious(current.getPrevious());
+    newEmployee.setNext(current);
+    current.setPrevious(newEmployee);
+
+    if (head == current) {
+      head = newEmployee;
+    } else {
+      newEmployee.getPrevious().setNext(newEmployee);
+    }
+    size += 1;
+    return true;
+  }
+
 }

@@ -40,11 +40,11 @@ public class EmployeeLinkedList {
     if (isEmpty()) {
       return null;
     }
-      EmployeeNode removeNode = head;
-      head = removeNode.getNext();
-      removeNode.setNext(null);
-      size--;
-      return removeNode;
+    EmployeeNode removeNode = head;
+    head = removeNode.getNext();
+    removeNode.setNext(null);
+    size--;
+    return removeNode;
 
   }
 

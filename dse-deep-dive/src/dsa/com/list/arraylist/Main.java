@@ -15,13 +15,13 @@ public class Main {
     employees.add(employee1);
     employees.add(employee2);
 
-   // employees.forEach(employee3 -> System.out.println(employee3));
+    // employees.forEach(employee3 -> System.out.println(employee3));
 
-  //  System.out.println(employees.get(1));
+    //  System.out.println(employees.get(1));
 
     //Get the employee as array
     Employee[] employees1 = employees.toArray(new Employee[employees.size()]);
-    for(Employee em : employees1){
+    for (Employee em : employees1) {
       System.out.println(em);
     }
   }

@@ -60,25 +60,8 @@ public class DublyLinkedList {
     length++;
   }
 
-  public static void main(String[] args) {
-    DublyLinkedList dl = new DublyLinkedList(6);
-    dl.append(5);
-    dl.append(8);
-    dl.append(8);
-    dl.append(5);
-    dl.append(6);
-    dl.swapFirstLast();
-    dl.printList();
 
-    System.out.println();
-    System.out.println("Reverse List");
-    dl.reverse();
-    dl.printList();
-
-    System.out.println(dl.isPalindrome());
-  }
-
-  private void swapFirstLast() {
+  void swapFirstLast() {
     if (length < 2) {
       return;
     }
@@ -89,7 +72,7 @@ public class DublyLinkedList {
   }
 
 
-  private void reverse() {
+  void reverse() {
     Node current = head;
     Node temp = null;
 
@@ -120,5 +103,33 @@ public class DublyLinkedList {
       last = last.prev;
     }
     return true;
+  }
+
+  public void swapNode() {
+    Node dummyNode = new Node(0);
+    dummyNode.next = head;
+    Node previousNode = dummyNode;
+    while (head != null && head.next != null) {
+      Node firstNode = head;
+      Node secondNode = head.next;
+
+      previousNode.next = secondNode;
+      firstNode.next = secondNode.next;
+      secondNode.next = firstNode;
+
+      secondNode.prev = previousNode;
+      firstNode.prev = secondNode;
+
+      if (firstNode.next != null) {
+        firstNode.next.prev = firstNode;
+      }
+      head = firstNode.next;
+      previousNode = firstNode;
+    }
+
+    head = dummyNode.next;
+    if (head != null) {
+      head.prev = null;
+    }
   }
 }

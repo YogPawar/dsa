@@ -1,32 +1,31 @@
 ## LL: Remove Duplicates ( ** Interview Question)
-You are given a singly linked list that contains integer values, where some of these values may be duplicated.
 
-
+You are given a singly linked list that contains integer values, where some of these values may be
+duplicated.
 
 Note: this linked list class does NOT have a tail which will make this method easier to implement.
 
+Your task is to implement a method called removeDuplicates() within the LinkedList class that
+removes all duplicate values from the list.
 
-
-Your task is to implement a method called removeDuplicates() within the LinkedList class that removes all duplicate values from the list.
-
-Your method should not create a new list, but rather modify the existing list in-place, preserving the relative order of the nodes.
+Your method should not create a new list, but rather modify the existing list in-place, preserving
+the relative order of the nodes.
 
 You can implement the removeDuplicates() method in two different ways:
 
+Using a Set (HashSet) - This approach will have a time complexity of O(n), where n is the number of
+nodes in the linked list. You are allowed to use the provided Set data structure in your
+implementation.
 
-
-Using a Set (HashSet) - This approach will have a time complexity of O(n), where n is the number of nodes in the linked list. You are allowed to use the provided Set data structure in your implementation.
-
-Without using a Set - This approach will have a time complexity of O(n^2), where n is the number of nodes in the linked list. You are not allowed to use any additional data structures for this implementation.
-
-
+Without using a Set - This approach will have a time complexity of O(n^2), where n is the number of
+nodes in the linked list. You are not allowed to use any additional data structures for this
+implementation.
 
 Here is the method signature you need to implement:
 
 public void removeDuplicates() {
 // Your implementation goes here
 }
-
 
 Example:
 
@@ -42,41 +41,45 @@ LinkedList: 1 -> 2 -> 3 -> 4 -> 5
 
 Pseudo Code (for solution that uses a set):
 
-Create an empty HashSet called values to store the unique node values encountered in the linked list.
+Create an empty HashSet called values to store the unique node values encountered in the linked
+list.
 
 Initialize two pointers: previous set to null, and current pointing to the head of the list.
 
-Start a while loop that continues until current is null: a. Check if values contains the value of the current node. i. If it does, update the next pointer of the previous node to skip the current node (i.e., previous.next = current.next), and decrement the list length by 1. b. If it does not, add the value of the current node to the values set and update the previous pointer to point to the current node. c. Move current one step ahead (i.e., current = current.next).
+Start a while loop that continues until current is null: a. Check if values contains the value of
+the current node. i. If it does, update the next pointer of the previous node to skip the current
+node (i.e., previous.next = current.next), and decrement the list length by 1. b. If it does not,
+add the value of the current node to the values set and update the previous pointer to point to the
+current node. c. Move current one step ahead (i.e., current = current.next).
 
 When the while loop ends, all duplicate nodes will have been removed from the list.
 
-
-
-This algorithm uses a HashSet to keep track of unique values in the linked list and removes duplicates by updating the next pointers of the nodes as needed.
-
-
-
-
+This algorithm uses a HashSet to keep track of unique values in the linked list and removes
+duplicates by updating the next pointers of the nodes as needed.
 
 Pseudo Code (for solution that does not use a set):
 
 Initialize a pointer current pointing to the head of the list.
 
-Start an outer while loop that continues until current is null: a. Initialize a pointer runner pointing to the current node. b. Start an inner while loop that continues until runner.next is null: i. Check if the value of the runner.next node is equal to the value of the current node. 1. If it is, update the next pointer of the runner node to skip the duplicate node (i.e., runner.next = runner.next.next), and decrement the list length by 1. ii. If it is not, move the runner pointer one step ahead (i.e., runner = runner.next). c. Move current one step ahead (i.e., current = current.next).
+Start an outer while loop that continues until current is null: a. Initialize a pointer runner
+pointing to the current node. b. Start an inner while loop that continues until runner.next is null:
+i. Check if the value of the runner.next node is equal to the value of the current node. 1. If it
+is, update the next pointer of the runner node to skip the duplicate node (i.e., runner.next =
+runner.next.next), and decrement the list length by 1. ii. If it is not, move the runner pointer one
+step ahead (i.e., runner = runner.next). c. Move current one step ahead (i.e., current =
+current.next).
 
 When the outer while loop ends, all duplicate nodes will have been removed from the list.
 
-
-
-This algorithm uses two nested loops to traverse the linked list, removing duplicate nodes by updating the next pointers of the nodes as needed, without the use of any additional data structure like a HashSet.
-
+This algorithm uses two nested loops to traverse the linked list, removing duplicate nodes by
+updating the next pointers of the nodes as needed, without the use of any additional data structure
+like a HashSet.
 
 For the optimal solution you will want to use a Set (you can read more about Sets here):
 
 I have also included an implementation that does not use a Set at the bottom of this explanation.
 
 Either solution will work but the one with a Set is O(n) while the other is O(n^2) time complexity.
-
 
 Solution Using a Set:
 
@@ -96,10 +99,9 @@ Solution Using a Set:
         }
     }
 
-
-
-
-This method aims to remove duplicate nodes from a singly linked list while retaining the unique ones. To accomplish this, it uses a Set data structure to keep a record of unique node values encountered during the traversal.
+This method aims to remove duplicate nodes from a singly linked list while retaining the unique
+ones. To accomplish this, it uses a Set data structure to keep a record of unique node values
+encountered during the traversal.
 
 Line-by-Line Explanation
 
@@ -107,23 +109,28 @@ Set<Integer> values = new HashSet<>();
 
 Creating a HashSet: Here, we create a new HashSet called values.
 
-Storing Unique Integers: This set will hold the unique integer values encountered in the linked list.
+Storing Unique Integers: This set will hold the unique integer values encountered in the linked
+list.
 
-Why a HashSet: A HashSet automatically manages duplicates, which makes it an ideal choice. When you try to add a duplicate value to a HashSet, the set will ignore it.
+Why a HashSet: A HashSet automatically manages duplicates, which makes it an ideal choice. When you
+try to add a duplicate value to a HashSet, the set will ignore it.
 
 Node previous = null;
 
 Declare and Initialize: We declare a Node variable called previous and initialize it to null.
 
-Role of Previous: The previous node is a reference to the node that immediately precedes the current node in the list.
+Role of Previous: The previous node is a reference to the node that immediately precedes the current
+node in the list.
 
 Why Initialize to Null: Initially, there is no preceding node, so previous is set to null.
 
 Node current = head;
 
-Declare and Initialize: A Node variable called current is declared and set to the head of the linked list.
+Declare and Initialize: A Node variable called current is declared and set to the head of the linked
+list.
 
-Role of Current: This current node serves as our pointer for traversing the linked list, starting from the head.
+Role of Current: This current node serves as our pointer for traversing the linked list, starting
+from the head.
 
 while (current != null) { ... }
 
@@ -133,7 +140,8 @@ End Condition: The loop will terminate when current is null, indicating the end 
 
 if (values.contains(current.value)) { ... } else { ... }
 
-Checking for Duplicates: The code checks if the set values already contains the value of the current node.
+Checking for Duplicates: The code checks if the set values already contains the value of the current
+node.
 
 Duplicate Detection: If it does, that means the node is a duplicate and needs to be removed.
 
@@ -153,7 +161,8 @@ values.add(current.value);
 
 Adding to Set: If current is not a duplicate, its value is added to the values set.
 
-Why Add: This is to ensure that any future nodes with the same value will be recognized as duplicates.
+Why Add: This is to ensure that any future nodes with the same value will be recognized as
+duplicates.
 
 previous = current;
 
@@ -163,21 +172,16 @@ Moving Forward: This sets the stage for the next iteration where current will mo
 
 current = current.next;
 
-Move to Next Node: Finally, current is updated to point to the next node in the list, preparing it for the next cycle of the loop.
-
-
+Move to Next Node: Finally, current is updated to point to the next node in the list, preparing it
+for the next cycle of the loop.
 
 Summary
 
-After completing all the iterations, the method will have removed all duplicate nodes from the linked list. It does this while updating the length of the list and keeping track of unique node values using a HashSet.
-
-
-
-
+After completing all the iterations, the method will have removed all duplicate nodes from the
+linked list. It does this while updating the length of the list and keeping track of unique node
+values using a HashSet.
 
 Code with inline comments:
-
-
 
     public void removeDuplicates() {
     // Step 1: Create a Set to store unique node values.
@@ -230,9 +234,8 @@ Code with inline comments:
         // continuing our iteration.
         current = current.next;
     }
+
 }
-
-
 
 Alternative Solution (does not use a Set):
 
@@ -241,8 +244,6 @@ You can also do this without a Set but this will change the Big O from O(n) to O
 A Set is a data structure that we will learn more about later in the course.
 
 Here is the solution without using a Set:
-
-
 
     public void removeDuplicates() {
         Node current = head;
@@ -260,14 +261,11 @@ Here is the solution without using a Set:
         }
     }
 
-
-
-
 Overall Explanation:
 
-This code defines a method called removeDuplicates() in the LinkedList class for a singly linked list in Java. The method is designed to remove duplicate values in the list without using any additional data structures like a Set. It uses two pointers: current and runner to achieve this.
-
-
+This code defines a method called removeDuplicates() in the LinkedList class for a singly linked
+list in Java. The method is designed to remove duplicate values in the list without using any
+additional data structures like a Set. It uses two pointers: current and runner to achieve this.
 
 Line-by-Line Explanation:
 
@@ -283,13 +281,15 @@ while (current != null) { ... }:
 
 While loop: This loop iterates as long as current is not null.
 
-Reach the end: The loop will stop when it reaches the end of the list, represented by current being null.
+Reach the end: The loop will stop when it reaches the end of the list, represented by current being
+null.
 
 Purpose: To check every node in the list for duplicates.
 
 Node runner = current;:
 
-Declare another Node variable: Inside the outer loop, we declare another variable runner of type Node.
+Declare another Node variable: Inside the outer loop, we declare another variable runner of type
+Node.
 
 Initialize to current: runner is set to the node that current is pointing to.
 
@@ -305,13 +305,15 @@ Purpose: To compare the current node's value against all subsequent nodes' value
 
 if (runner.next.value == current.value) { ... } else { ... }:
 
-Conditional Check: Inside the inner loop, we compare the value of the node that runner.next is pointing to with the value of the node that current is pointing to.
+Conditional Check: Inside the inner loop, we compare the value of the node that runner.next is
+pointing to with the value of the node that current is pointing to.
 
 Purpose: To identify if a duplicate node exists.
 
 runner.next = runner.next.next;:
 
-Update next pointer: If we find a duplicate, the next pointer of the runner node is updated to point to the node after runner.next.
+Update next pointer: If we find a duplicate, the next pointer of the runner node is updated to point
+to the node after runner.next.
 
 Effect: This essentially removes runner.next from the list, thus removing the duplicate.
 
@@ -333,19 +335,12 @@ Move current: After the inner loop has finished, current is moved to the next no
 
 Purpose: To proceed with checking the next unique node in the list for duplicates.
 
-
-
 Final Outcome:
 
-After both the outer and inner loops have completed their iterations, any nodes in the list with duplicate values will have been removed, while preserving the relative order of the remaining nodes.
-
-
-
-
+After both the outer and inner loops have completed their iterations, any nodes in the list with
+duplicate values will have been removed, while preserving the relative order of the remaining nodes.
 
 Code with inline comments:
-
-
 
     public void removeDuplicates() {
     // Step 1: Start at the beginning of the list.
@@ -398,6 +393,7 @@ Code with inline comments:
         // current value, move `current` to the next node.
         current = current.next;
     }
+
 }
 
 

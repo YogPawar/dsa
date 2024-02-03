@@ -2,11 +2,19 @@ DLL: Swap Nodes in Pairs ( ** Interview Question)
 
 ATTENTION: Advanced Doubly Linked List Challenge Ahead!
 
-This question is acknowledged as one of the more intricate challenges within the Doubly Linked List section. It's not unusual for students to find this task quite formidable at this point in the course.
+This question is acknowledged as one of the more intricate challenges within the Doubly Linked List
+section. It's not unusual for students to find this task quite formidable at this point in the
+course.
 
-If you're considering diving into this problem, it's crucial to approach it methodically. I recommend drawing out the list structures and operations to better visualize the problem. This challenge demands a deep understanding of Doubly Linked Lists' unique characteristics and manipulation techniques.
+If you're considering diving into this problem, it's crucial to approach it methodically. I
+recommend drawing out the list structures and operations to better visualize the problem. This
+challenge demands a deep understanding of Doubly Linked Lists' unique characteristics and
+manipulation techniques.
 
-Use this opportunity to deepen your understanding, but also remember it's absolutely fine to come back to this problem later if it feels overwhelming now. Progress in complex concepts like these sometimes requires stepping back and revisiting with fresh insights. Good luck, and remember that perseverance is key in mastering these advanced topics!
+Use this opportunity to deepen your understanding, but also remember it's absolutely fine to come
+back to this problem later if it feels overwhelming now. Progress in complex concepts like these
+sometimes requires stepping back and revisiting with fresh insights. Good luck, and remember that
+perseverance is key in mastering these advanced topics!
 
 Now, here is the problem:
 
@@ -16,10 +24,10 @@ _________________________________
 
 You are given a doubly linked list.
 
-Implement a method called swapPairs within the class that swaps the values of adjacent nodes in the linked list. The method should not take any input parameters.
+Implement a method called swapPairs within the class that swaps the values of adjacent nodes in the
+linked list. The method should not take any input parameters.
 
 Note: This DoublyLinkedList does not have a tail pointer which will make the implementation easier.
-
 
 Example:
 
@@ -29,17 +37,18 @@ should become
 
 2 <-> 1 <-> 4 <-> 3
 
+Your implementation should handle edge cases such as an empty linked list or a linked list with only
+one node.
 
-Your implementation should handle edge cases such as an empty linked list or a linked list with only one node.
-
-
-Note: You must solve the problem WITHOUT MODIFYING THE VALUES in the list's nodes (i.e., only the nodes' prev and next pointers may be changed.)
+Note: You must solve the problem WITHOUT MODIFYING THE VALUES in the list's nodes (i.e., only the
+nodes' prev and next pointers may be changed.)
 
 ### Hint
+
 Pseudo Code:
 
-As you work through the pseudo-code, I recommend sketching the nodes, pointers, and each step on paper. This visual representation will greatly aid in understanding and tracking the process.
-
+As you work through the pseudo-code, I recommend sketching the nodes, pointers, and each step on
+paper. This visual representation will greatly aid in understanding and tracking the process.
 
 Initialize variables:
 
@@ -113,20 +122,16 @@ Eventually, set head to dummyNode.next.
         if (head != null) head.prev = null;
     }
 
-
-
-
 Imagine a doubly linked list: 1 <-> 2 <-> 3 <-> 4
 
 After the swap, the list should look like: 2 <-> 1 <-> 4 <-> 3
-
-
 
 Initialization:
 
     Node dummyNode = new Node(0);
 
-A dummy node is created to simplify the swapping process. This is a common trick used when modifying linked lists, as it helps in handling edge cases.
+A dummy node is created to simplify the swapping process. This is a common trick used when modifying
+linked lists, as it helps in handling edge cases.
 
     dummydummyNode.next = head;
 
@@ -134,7 +139,8 @@ Connect the dummy node to the head of the linked list.
 
     Node previousNode = dummy;
 
-previousNode will always point to the node before the pair of nodes we're currently working on. Initially, it points to dummyNode.
+previousNode will always point to the node before the pair of nodes we're currently working on.
+Initially, it points to dummyNode.
 
 Loop to swap adjacent pairs:
 
@@ -147,17 +153,20 @@ Inside the loop:
     Node firstNode = head;
 
     Node secondNode = head.next;
+
 Identify the two nodes which we will be swapping.
 
     previousNode.next = secondNode;
+
 Adjust the previous node's next pointer to point to secondNode.
 
     firstNode.next = secondNode.next;
+
 Point the next of the firstNode to the node right after secondNode.
 
     secondNode.next = firstNode;
-Now, make the secondNode point to firstNode, thereby completing the main part of the swap.
 
+Now, make the secondNode point to firstNode, thereby completing the main part of the swap.
 
 For the doubly linked list, we also need to adjust the prev pointers:
 
@@ -180,26 +189,25 @@ If there's a node after firstNode, adjust its prev pointer to point back to firs
 Move the head to the node after firstNode for the next iteration.
 
     previousNode = firstNode;
+
 Update the previousNode to firstNode for the next iteration.
 
 Finalizing:
 
     head = dummyNode.next;
+
 Reset the head of our list to exclude the dummy node.
 
     if (head != null) head.prev = null;
 
 If there's a node present, make sure its prev is null, indicating the start of the list.
 
-
-
 Summary:
 
-The function swaps adjacent pairs of nodes in a doubly linked list. It uses a dummy node at the beginning of the list to facilitate swapping. After adjusting all the next and prev pointers for each pair, it re-positions the head and prev node pointers for the next iteration. After completing all swaps, it resets the list's head to exclude the dummy node.
-
-
-
-
+The function swaps adjacent pairs of nodes in a doubly linked list. It uses a dummy node at the
+beginning of the list to facilitate swapping. After adjusting all the next and prev pointers for
+each pair, it re-positions the head and prev node pointers for the next iteration. After completing
+all swaps, it resets the list's head to exclude the dummy node.
 
 Let's walk through an example step by step:
 
@@ -209,8 +217,6 @@ Initial list:
 Goal:
 2 <-> 1 <-> 4 <-> 3
 
-
-
 1. Setting Up the Starting Point (Dummy Node):
 
 Node dummyNode = new Node(0);
@@ -219,14 +225,10 @@ Node previousNode = dummyNode;
 After these lines, our list is conceptually:
 (dummy) <-> 1 <-> 2 <-> 3 <-> 4
 
-
-
 2. Checking if There are Nodes to Swap:
 
 while (head != null && head.next != null) {
 Our current head is 1. Since 1 and its next node 2 exist, we enter the loop to swap them.
-
-
 
 3. Swapping the First Pair (1 and 2):
 
@@ -235,11 +237,11 @@ Pick up the two nodes:
     Node firstNode = head;       // 1
     Node secondNode = head.next; // 2
 
-
 Move the second node to the position of the first:
 
     previousNode.next = secondNode;      // dummy now points to 2
     (dummy) -> 2
+
 1 still points to 2, and we'll fix that soon.
 
 Make the first node point to the node after the second:
@@ -260,13 +262,11 @@ Adjusting previous pointers:
     firstNode.next.prev = firstNode;  // 3's prev is set to 1
     }
 
-
 4. Move to the Next Pair:
 
-    head = firstNode.next;    // Move our current head to 3
-previousNode = firstNode;   // Set 1 as the previous node
-Now, our focus is on 3 and 4.
-
+   head = firstNode.next; // Move our current head to 3
+   previousNode = firstNode; // Set 1 as the previous node
+   Now, our focus is on 3 and 4.
 
 
 5. Swapping the Second Pair (3 and 4):
@@ -286,24 +286,15 @@ Place the first node (3) next to the second one (4):
 Adjusting prev pointers:
 4's prev is set to 1 and 3's prev is set to 4.
 
-
-
 6. Tidying Up (after exiting the while loop):
 
-head = dummyNode.next;        // Set the list's head to 2
+head = dummyNode.next; // Set the list's head to 2
 if (head != null) head.prev = null; // Ensure 2's prev is null
-
 
 Now, our list looks like this:
 2 <-> 1 <-> 4 <-> 3
 
-
-
-
-
 Code with inline comments:
-
-
 
     public void swapNodePairs() {
             // Create a placeholder (dummyNode) node to simplify swapping.

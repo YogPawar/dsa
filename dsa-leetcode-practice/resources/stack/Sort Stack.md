@@ -1,15 +1,28 @@
 ### Stack: Sort Stack ( ** Interview Question)
-The sortStack method takes a single argument, a Stack object.  The method should sort the elements in the stack in ascending order (the lowest value will be at the top of the stack) using only one additional stack.  The function should use the pop, push, peek, and isEmpty methods of the Stack object.
+
+The sortStack method takes a single argument, a Stack object. The method should sort the elements in
+the stack in ascending order (the lowest value will be at the top of the stack) using only one
+additional stack. The function should use the pop, push, peek, and isEmpty methods of the Stack
+object.
 
 This will use the Stack class we created in these coding exercises:
 
-To sort the stack, you should create a new, empty stack to hold the sorted elements.  Then, while the original stack is not empty, you should remove the top element from the original stack and compare it to the top element of the sorted stack.  If the top element of the sorted stack is greater than the current element, you should move the top element of the sorted stack back to the original stack until the current element is in the correct position.  Finally, you should add the current element to the sorted stack.
+To sort the stack, you should create a new, empty stack to hold the sorted elements. Then, while the
+original stack is not empty, you should remove the top element from the original stack and compare
+it to the top element of the sorted stack. If the top element of the sorted stack is greater than
+the current element, you should move the top element of the sorted stack back to the original stack
+until the current element is in the correct position. Finally, you should add the current element to
+the sorted stack.
 
-Once all the elements have been sorted, you should copy the sorted elements from the sorted stack to the original stack in the correct order.
+Once all the elements have been sorted, you should copy the sorted elements from the sorted stack to
+the original stack in the correct order.
 
-Overall, the function should have a time complexity of O(n^2), where n is the number of elements in the original stack, due to the nested loops used to compare the elements.  However, the function should only use one additional stack, which could be useful in situations where memory is limited.
+Overall, the function should have a time complexity of O(n^2), where n is the number of elements in
+the original stack, due to the nested loops used to compare the elements. However, the function
+should only use one additional stack, which could be useful in situations where memory is limited.
 
 ### Hint
+
 Pseudo Code:
 
 Initialize additionalStack:
@@ -22,7 +35,8 @@ While input stack is not empty, repeat the following steps:
 
 Pop an element from the input stack and name it temp.
 
-While additionalStack is not empty and its top element is greater than temp, pop the top element from additionalStack and push it to the input stack.
+While additionalStack is not empty and its top element is greater than temp, pop the top element
+from additionalStack and push it to the input stack.
 
 Push temp to additionalStack.
 
@@ -30,15 +44,11 @@ Transfer sorted elements:
 
 While additionalStack is not empty, pop the top element and push it to the input stack.
 
-
-
-
-
 Put in Simpler Terms:
 
-
-
-Imagine you have a stack of books and you want to arrange them in order of their height, from shortest to tallest. But, you have no extra space, except for another pile that you can use temporarily.
+Imagine you have a stack of books and you want to arrange them in order of their height, from
+shortest to tallest. But, you have no extra space, except for another pile that you can use
+temporarily.
 
 Here's how you can do it:
 
@@ -48,25 +58,19 @@ Look at the top book of your temporary pile (additionalStack), if it's taller th
 
 Move it back to the original pile.
 
-Keep doing this until you find a book that's not taller than the temp book or until the temporary pile is empty.
+Keep doing this until you find a book that's not taller than the temp book or until the temporary
+pile is empty.
 
 Then, put the temp book on the temporary pile.
 
-Repeat steps 1-3 until your original pile is empty. Now, all your books are in the temporary pile, but from tallest to shortest.
+Repeat steps 1-3 until your original pile is empty. Now, all your books are in the temporary pile,
+but from tallest to shortest.
 
 Finally, move all the books from the temporary pile back to the original pile, one by one.
 
-
-
 Now your books are arranged in the original pile from shortest to tallest!
 
-
-
-
-
 Additional Hints for Understanding sortStack Method:
-
-
 
 Purpose of the Method:
 
@@ -142,12 +146,11 @@ Can you manually trace the code with a sample stack to see how each step is exec
         }
     }
 
-
-
-
 Understanding Stacks
 
-Firstly, it's important to understand that a stack is a data structure that follows the Last-In-First-Out (LIFO) principle. This means the last element added to the stack is the first one to be removed.
+Firstly, it's important to understand that a stack is a data structure that follows the
+Last-In-First-Out (LIFO) principle. This means the last element added to the stack is the first one
+to be removed.
 
 The Method: sortStack
 
@@ -161,7 +164,8 @@ Process
 
 Initialization:
 
-An additional stack, additionalStack, is created. This stack will temporarily hold elements in sorted order.
+An additional stack, additionalStack, is created. This stack will temporarily hold elements in
+sorted order.
 
 Sorting:
 
@@ -169,17 +173,21 @@ The method enters a loop that continues until the main stack is empty.
 
 In each iteration, the top element (temp) from the main stack is popped.
 
-Now, the method checks if the top element of the additionalStack is greater than temp. If it is, those elements are popped from additionalStack and pushed back onto the main stack. This step is repeated until a correct position for temp is found in additionalStack.
+Now, the method checks if the top element of the additionalStack is greater than temp. If it is,
+those elements are popped from additionalStack and pushed back onto the main stack. This step is
+repeated until a correct position for temp is found in additionalStack.
 
 Then, temp is pushed into the additionalStack.
 
 Rebuilding the Original Stack:
 
-Once the main stack is empty, the elements from additionalStack (which are now sorted) are popped and pushed back onto the main stack.
+Once the main stack is empty, the elements from additionalStack (which are now sorted) are popped
+and pushed back onto the main stack.
 
 Example
 
-Let's consider an example for clarity. Suppose our main stack (stack) has the elements [3, 1, 4, 2] with 2 at the top.
+Let's consider an example for clarity. Suppose our main stack (stack) has the elements [3, 1, 4, 2]
+with 2 at the top.
 
 Initialization:
 
@@ -247,7 +255,8 @@ Sixth Iteration:
 
     Pop from stack: temp = 3.
 
-additionalStack has [1, 2, 4], and 4 > 3. So, pop 4 from additionalStack and push onto stack. Now stack has [4].
+additionalStack has [1, 2, 4], and 4 > 3. So, pop 4 from additionalStack and push onto stack. Now
+stack has [4].
 
 additionalStack now has [1, 2], and 2 < 3. So, push temp (3) onto additionalStack.
 
@@ -259,7 +268,8 @@ additionalStack has: [1, 2, 3]
 
 Rebuilding the Original Stack:
 
-Now that the original stack is almost empty (except for the top element 4), we rebuild it by popping elements from additionalStack and pushing them onto stack.
+Now that the original stack is almost empty (except for the top element 4), we rebuild it by popping
+elements from additionalStack and pushing them onto stack.
 
 Pop 3 from additionalStack and push onto stack. Now stack has [4, 3].
 
@@ -273,19 +283,16 @@ The original stack is now sorted in descending order, with the final state being
 
 additionalStack is empty.
 
-So, the final sorted stack is [4, 3, 2, 1], where 1 is at the top. This sorting process ensures that the largest elements are at the bottom of the stack and the smallest elements are at the top, adhering to the Last-In-First-Out principle of the stack.
+So, the final sorted stack is [4, 3, 2, 1], where 1 is at the top. This sorting process ensures that
+the largest elements are at the bottom of the stack and the smallest elements are at the top,
+adhering to the Last-In-First-Out principle of the stack.
 
-In the final sorted stack, the order of elements, from bottom to top, will be [1, 2, 3, 4], which means 4 will be at the bottom and 1 will be at the top.
+In the final sorted stack, the order of elements, from bottom to top, will be [1, 2, 3, 4], which
+means 4 will be at the bottom and 1 will be at the top.
 
 This method sorts the elements in ascending order in the original stack.
 
-
-
-
-
 Code with inline comments:
-
-
 
     public static void sortStack(Stack<Integer> stack) {
         // Initialize an additional stack. This stack will be used to hold elements

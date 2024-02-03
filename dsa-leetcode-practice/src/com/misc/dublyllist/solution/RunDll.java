@@ -13,7 +13,7 @@ public class RunDll {
     System.out.println("Before swap");
     dl.printList();
 
-    dl.swapNode();
+    dl.swapPairs();
     System.out.println();
     System.out.println("After swap");
     dl.printList();

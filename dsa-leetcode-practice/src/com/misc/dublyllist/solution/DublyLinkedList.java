@@ -1,7 +1,5 @@
 package com.misc.dublyllist.solution;
 
-import javax.print.DocFlavor.READER;
-
 public class DublyLinkedList {
 
   int length;
@@ -105,7 +103,7 @@ public class DublyLinkedList {
     return true;
   }
 
-  public void swapNode() {
+  public void swapPairs() {
     Node dummyNode = new Node(0);
     dummyNode.next = head;
     Node previousNode = dummyNode;

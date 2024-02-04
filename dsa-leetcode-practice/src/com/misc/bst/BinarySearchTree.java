@@ -3,7 +3,6 @@ package com.misc.bst;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-import org.w3c.dom.Node;
 
 public class BinarySearchTree {
 
@@ -77,7 +76,7 @@ public class BinarySearchTree {
     }
     if (value < currentNode.value) {
       currentNode.left = rInsert(currentNode.left, value);
-    } else {
+    } else if (value > currentNode.value) {
       currentNode.right = rInsert(currentNode.right, value);
     }
     return currentNode;

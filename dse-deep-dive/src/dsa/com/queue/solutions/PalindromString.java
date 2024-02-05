@@ -37,10 +37,4 @@ public class PalindromString {
     //  System.out.println('z' + 0);
 
   }
-
-  public static isPalindromeQuese(String input) {
-
-
-  }
-
 }

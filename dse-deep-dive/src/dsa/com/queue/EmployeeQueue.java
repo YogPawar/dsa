@@ -1,8 +1,5 @@
 package dsa.com.queue;
 
-import com.sun.org.apache.bcel.internal.generic.ARETURN;
-import com.sun.org.apache.bcel.internal.generic.DRETURN;
-
 public class EmployeeQueue {
 
   private Employee[] queue;
@@ -17,6 +14,7 @@ public class EmployeeQueue {
     if (last == queue.length) {
       Employee[] copy = new Employee[2 * queue.length];
       System.arraycopy(queue, 0, copy, 0, copy.length);
+      queue = copy;
     }
     queue[last] = employee;
     last++;

@@ -15,7 +15,7 @@ public class PalindromString {
     StringBuilder modification = new StringBuilder(input.length());
     for (int i = 0; i < input.length(); i++) {
       char ch = input.toLowerCase().charAt(i);
-      if (ch > 'a' && ch < 'z') {
+      if (ch >= 'a' && ch <= 'z') {
         modification.append(ch);
         stack.push(ch);
       }
@@ -33,8 +33,35 @@ public class PalindromString {
     String str = "I did,did i?";
     //String str = "hello";
     System.out.println(isPalindrom(str));
+    System.out.println(isPalin(str));
 
     //  System.out.println('z' + 0);
 
   }
+
+  /**
+   * Check String is palindrom or not using Stack and Queue
+   *
+   * @param str
+   * @return
+   */
+  public static boolean isPalin(String str) {
+    LinkedList<Character> stack = new LinkedList<>();
+    LinkedList<Character> queue = new LinkedList<>();
+    for (int i = 0; i < str.length(); i++) {
+      char ch = str.toLowerCase().charAt(i);
+      if (ch >= 'a' && ch <= 'z') {
+        stack.push(ch);
+        queue.add(ch);
+      }
+    }
+    while (!stack.isEmpty() && !queue.isEmpty()) {
+      if (!queue.removeFirst().toString().equals(stack.pop().toString())) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+
 }

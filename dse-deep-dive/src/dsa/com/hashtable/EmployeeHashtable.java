@@ -109,6 +109,13 @@ public class EmployeeHashtable {
     }
     Employee employee = hashtable[hashKey].employee;
     hashtable[hashKey] = null;
+    //Rehash the value
+    StoredEmployee[] oldHashTable = hashtable;
+    for (int i = 0; i < hashtable.length; i++) {
+      if (oldHashTable[i] != null) {
+        put(oldHashTable[i].key, oldHashTable[i].employee);
+      }
+    }
     return employee;
   }
 }

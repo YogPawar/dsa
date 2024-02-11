@@ -22,7 +22,7 @@ public class BucketSort {
 
     sortBucketElement(bucket); //sort the inserted element from the bucket
 
-    mergeBucket(bucket, input); //merge the all bucket into one
+    mergeBucket(bucket, input); //merge the sorted bucket
 
   }
 

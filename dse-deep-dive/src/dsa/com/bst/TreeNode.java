@@ -39,6 +39,27 @@ public class TreeNode {
     }
   }
 
+  public void traversePreOrder() {
+    System.out.print(data + ", ");
+    if (leftChild != null) {
+      leftChild.traversePreOrder();
+    }
+    if (rightChild != null) {
+      rightChild.traversePreOrder();
+    }
+  }
+
+  public void traversePostOrder() {
+    if (leftChild != null) {
+      leftChild.traversePostOrder();
+    }
+    if (rightChild != null) {
+      rightChild.traversePostOrder();
+    }
+    System.out.print(data + ", ");
+
+  }
+
   public int getData() {
     return data;
   }
@@ -103,11 +124,19 @@ public class TreeNode {
     } else if (value > subRoot.getData()) {
       subRoot.setRightChild(delete(subRoot.getRightChild(), value));
     } else {
+      //case 1 -2 :node to delete have 0 to 1 children
       if (subRoot.equals(getLeftChild() == null)) {
         return subRoot.getRightChild();
       } else if (subRoot.getRightChild() == null) {
         return subRoot.getRightChild();
       }
+
+      //case 3 : node to delete have 3 children
+      // Replace the value in the  subtree root node with smallest value from the right subtree
+
+      subRoot.setData(subRoot.getRightChild().min());
+      //delete the node that has the smallest value in the right subtroot
+      subRoot.setRightChild(delete(subRoot.getRightChild(), subRoot.getData()));
     }
     return subRoot;
   }

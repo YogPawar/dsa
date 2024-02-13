@@ -18,6 +18,18 @@ public class Tree {
     }
   }
 
+  public void traversePreOrder() {
+    if (root != null) {
+      root.traversePreOrder();
+    }
+  }
+
+  public void traversePostOrder() {
+    if (root != null) {
+      root.traversePostOrder();
+    }
+  }
+
   public TreeNode get(int value) {
     if (root == null) {
       return null;
@@ -34,7 +46,7 @@ public class Tree {
     return (root == null) ? Integer.MAX_VALUE : root.max();
   }
 
-  public TreeNode delete(int value){
+  public TreeNode delete(int value) {
     return root.delete(root, value);
   }
 }

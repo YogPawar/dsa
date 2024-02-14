@@ -21,8 +21,7 @@ public class Heap {
 
   private void fixHeapAbove(int index) {
     int newValue = heap[index];
-    while (index > 0 && newValue > heap[getParent(
-        index)]) { //swap the value if parent is less
+    while (index > 0 && newValue > heap[getParent(index)]) { //swap the value if parent is less
       // new value
       heap[index] = heap[getParent(index)];
       index = getParent(index);
@@ -66,6 +65,7 @@ public class Heap {
 
   private void fixHeapBelow(int index, int lastHeapIndex) {
     int childToSwap;
+
     while (index <= lastHeapIndex) {
       int leftChild = getChild(index, true);
       int rightChild = getChild(index, false);
@@ -75,13 +75,15 @@ public class Heap {
         } else {
           childToSwap = (heap[leftChild] > heap[rightChild] ? leftChild : rightChild);
         }
+
         if (heap[index] < heap[childToSwap]) {
-          int temp = heap[index];
+          int tmp = heap[index];
           heap[index] = heap[childToSwap];
-          heap[childToSwap] = temp;
+          heap[childToSwap] = tmp;
         } else {
           break;
         }
+
         index = childToSwap;
       } else {
         break;
@@ -100,4 +102,15 @@ public class Heap {
     return heap[0];
   }
 
+  public void sort() {
+    int lastHeapIndex = size - 1;
+    for (int i = 0; i < lastHeapIndex; i++) {
+      int temp = heap[0];
+      heap[0] = heap[lastHeapIndex - i];
+      heap[lastHeapIndex - i] = temp;
+
+      fixHeapBelow(0, lastHeapIndex - i - 1);
+
+    }
+  }
 }

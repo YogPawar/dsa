@@ -17,10 +17,11 @@ public class Main {
 
     System.out.println(heap.peek());
 
-    heap.delete(0);
     System.out.println(heap.peek());
 
+    heap.sort();
 
+heap.printHeap();
   }
 
 }

@@ -9,7 +9,7 @@ public class RadixSort {
 
     radixSort(inArray, 10, 4);
 
-    System.out.println(Arrays.toString(stringArray));
+    System.out.println(Arrays.toString(inArray));
   }
 
   private static void radixSort(int[] inArray, int radix, int width) {

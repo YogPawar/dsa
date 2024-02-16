@@ -11,7 +11,7 @@ public class Merge {
 
     int[] unSortedArray = {4, 6, 2, 1, 8, 43, 5};
 
-    mergeSort(unSortedArray, 0, unSortedArray.length);
+    dmergeSort(unSortedArray, 0, unSortedArray.length);
     System.out.println(Arrays.toString(unSortedArray));
   }
 
@@ -45,5 +45,36 @@ public class Merge {
     System.arraycopy(array, i, array, start + index, mid - i);
     System.arraycopy(combined, 0, array, start, index);
   }
+
+  private static void dmerge(int[] array, int start, int mid, int end) {
+
+    if (array[mid - 1] >= array[mid]) {
+      return;
+    }
+
+    int i = start;
+    int j = mid;
+    int index = 0;
+    int[] combined = new int[end - start];
+
+    while (i < mid && j < end) {
+      combined[index++] = array[i] >= array[j] ? array[i++] : array[j++];
+    }
+    System.arraycopy(array, i, array, start + index, mid - i);
+    System.arraycopy(combined, 0, array, start, index);
+  }
+
+  public static void dmergeSort(int[] array, int start, int end) {
+    if (end - start < 2) {
+      return;
+    }
+
+    int mid = (start + end) / 2;
+    dmergeSort(array, 0, mid); //left array
+    dmergeSort(array, mid, end); //right array
+    dmerge(array, start, mid, end);
+
+  }
+
 
 }

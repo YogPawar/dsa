@@ -10,17 +10,6 @@ public class LinkedList {
     head = newNode;
   }
 
-
-  public static class Node {
-
-    public int value;
-    public Node next;
-
-    public Node(int value) {
-      this.value = value;
-    }
-  }
-
   public void append(int value) {
     Node newNode = new Node(value);
     if (head == null) {
@@ -75,5 +64,15 @@ public class LinkedList {
     dummyNode.next = null;
     return result;
 
+  }
+
+  public static class Node {
+
+    public int value;
+    public Node next;
+
+    public Node(int value) {
+      this.value = value;
+    }
   }
 }

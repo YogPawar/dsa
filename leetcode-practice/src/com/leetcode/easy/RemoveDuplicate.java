@@ -1,13 +1,10 @@
 package com.leetcode.easy;
 
-import java.util.HashSet;
-
 public class RemoveDuplicate {
 
   public static void main(String[] args) {
     int[] input = {1, 1, 2};
     // int[] input = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};  // 0,1,2,3,4
-
 
     System.out.println(removeDuplicate(input));
   }

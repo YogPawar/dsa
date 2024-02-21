@@ -2,9 +2,6 @@ package com.leetcode.easy;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import javax.crypto.spec.PSource;
 
 public class TwoSum {
 

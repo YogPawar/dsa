@@ -10,14 +10,14 @@ public class SortedArray {
     int j = 0;
     while (i < nums1.length && j < nums2.length) {
 
-      if(nums1[i] < nums2[j]){
+      if (nums1[i] < nums2[j]) {
         int temp = nums1[i];
         nums1[i] = nums2[j];
         nums2[j] = temp;
         i++;
         j++;
 
-      }else{
+      } else {
         int temp = nums2[j];
         nums2[j] = nums1[i];
         nums2[i] = temp;

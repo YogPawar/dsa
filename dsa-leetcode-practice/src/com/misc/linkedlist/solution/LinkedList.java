@@ -9,16 +9,6 @@ public class LinkedList {
   private Node tail;
   private int length;
 
-  class Node {
-
-    int value;
-    Node next;
-
-    Node(int value) {
-      this.value = value;
-    }
-  }
-
   public LinkedList(int value) {
     Node newNode = new Node(value);
     head = newNode;
@@ -173,7 +163,6 @@ public class LinkedList {
     head = dummy1.next;
   }
 
-
   public void removDuplicate() {
     if (length == 0 || length < 2) {
       return;
@@ -220,6 +209,16 @@ public class LinkedList {
       head = head.next;
     }
     return num;
+  }
+
+  class Node {
+
+    int value;
+    Node next;
+
+    Node(int value) {
+      this.value = value;
+    }
   }
 
 }

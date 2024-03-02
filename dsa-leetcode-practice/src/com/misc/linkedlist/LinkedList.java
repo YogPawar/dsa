@@ -16,16 +16,6 @@ public class LinkedList {
     length = 1;
   }
 
-  class Node {
-
-    public int value;
-    private Node next;
-
-    Node(int value) {
-      this.value = value;
-    }
-  }
-
   public void printList() {
     Node temp = head;
     while (temp != null) {
@@ -181,6 +171,16 @@ public class LinkedList {
       temp.next = before;
       before = temp;
       temp = after;
+    }
+  }
+
+  class Node {
+
+    public int value;
+    private Node next;
+
+    Node(int value) {
+      this.value = value;
     }
   }
 }

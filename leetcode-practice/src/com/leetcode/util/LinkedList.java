@@ -66,6 +66,31 @@ public class LinkedList {
 
   }
 
+  /**
+   * it will be written if list is cyclic or not we will implement the slow pointer fast pointer
+   * algorithm to identify if there liked list is cyclic or not
+   * <p>
+   * Floyd’s Cycle-Finding Algorithm // fast slow approach // 2 pointers // "tortoise and the hare
+   * algorithm"
+   *
+   * @return
+   */
+  public boolean isCycle() {
+    Node slow = head;
+    Node fast = head;
+
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+
+      if (slow == fast) {
+        return true;
+      }
+    }
+    return false;
+
+  }
+
   public static class Node {
 
     public int value;

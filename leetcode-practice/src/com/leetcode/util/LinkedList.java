@@ -1,5 +1,7 @@
 package com.leetcode.util;
 
+import org.w3c.dom.Node;
+
 public class LinkedList {
 
   Node head;
@@ -88,7 +90,42 @@ public class LinkedList {
       }
     }
     return false;
+  }
 
+  /*
+  * Time Complexity: O(m*n), where m and n are number of nodes in two linked list.
+  Auxiliary Space: O(1), Constant Space is used.
+  *
+  * */
+  public Node isInterSectionApproach1(Node first, Node second) {
+    if (first == null || second == null) {
+      return null;
+    }
+
+    while (second != null) {
+      Node temp = first;
+      while (temp != null) {
+        if (second == temp) {
+          return second;
+        }
+        temp = temp.next;
+
+      }
+      second = second.next;
+    }
+    return null;
+  }
+
+  public Node isInterSectionApproach2(Node first, Node second) {
+    if(first == null || second == null)return  null;
+
+    Node a = first;
+    Node b = second;
+    while (a != b){
+      a = a == null? second : a.next;
+      b = b == null ? first : b.next;
+    }
+  return a;
   }
 
   public static class Node {

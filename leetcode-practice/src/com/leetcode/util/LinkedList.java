@@ -117,15 +117,54 @@ public class LinkedList {
   }
 
   public Node isInterSectionApproach2(Node first, Node second) {
-    if(first == null || second == null)return  null;
+    if (first == null || second == null) {
+      return null;
+    }
 
     Node a = first;
     Node b = second;
-    while (a != b){
-      a = a == null? second : a.next;
+    while (a != b) {
+      a = a == null ? second : a.next;
       b = b == null ? first : b.next;
     }
-  return a;
+    return a;
+  }
+
+  public void removeDuplicate(int value) {
+    Node current = head;
+    while (current != null) {
+      Node runner = current;
+      if (runner.next.value == value) {
+        runner.next = runner.next.next;
+      } else {
+        runner = runner.next;
+      }
+      current = current.next;
+    }
+  }
+
+  public void reverseList() {
+    if (head == null) {
+      return;
+    }
+
+    Node temp = head;
+    while (temp.next != null) {
+      temp = temp.next;
+    }
+    Node tail = temp;
+    temp = head;
+    head = tail;
+
+    Node after = temp.next;
+    Node before = null;
+    while (temp != null || temp.next != null) {
+      after = temp.next;
+      temp.next = before;
+      before = temp;
+      temp = after;
+      temp= temp.next;
+    }
   }
 
   public static class Node {

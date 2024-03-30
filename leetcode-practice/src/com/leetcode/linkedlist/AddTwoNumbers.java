@@ -16,8 +16,10 @@ public class AddTwoNumbers {
     l2.append(8);
 
     Node no = l2.addTwoList(l1, l2);
-    System.out.println(no);
-
+    while (no != null){
+      System.out.println(no.value);
+      no = no.next;
+    }
   }
 
 

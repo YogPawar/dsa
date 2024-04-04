@@ -1,12 +1,17 @@
 package com.leetcode.array.hard;
 
 import java.util.Arrays;
+import java.util.TreeSet;
 
-public class MidienOfTwoSortedArrray {
+public class MedianOfTwoSortedArray {
 
   public static void main(String[] args) {
-    MidienOfTwoSortedArrray midien = new MidienOfTwoSortedArrray();
-    System.out.println(midien.midden(new int[]{1, 2, 3}, new int[]{1, 2}));
+    MedianOfTwoSortedArray midien = new MedianOfTwoSortedArray();
+    System.out.println(midien(new int[]{1, 2, 3}, new int[]{1, 2}));
+  }
+
+  private static boolean midien(int[] ints, int[] ints1) {
+    return false;
   }
 
   private double midden(int[] nums1, int[] nums2) {

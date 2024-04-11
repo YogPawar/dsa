@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Heap {
 
-  private List<Integer> heap;
+  private final List<Integer> heap;
 
   public Heap() {
     this.heap = new ArrayList<>();

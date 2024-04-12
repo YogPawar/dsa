@@ -16,10 +16,10 @@ public class GenericHeap {
     heap.insert(25);
     heap.insert(100);
     heap.showHeap();
-    heap.remove();
-    heap.showHeap();
-    heap.remove();
-    heap.showHeap();
+
+    System.out.println(heap.findKthSmallestElement(new int[]{10, 3, 4, 7, 9}, 3));
+    System.out.println(heap.findKthSmallestElement(new int[]{10, 3, 4, 7, 9}, 1));
+    System.out.println(heap.findKthSmallestElement(new int[]{10, 3, 4, 7, 9}, 2));
   }
 
   private int parent(int childIndex) {
@@ -91,6 +91,17 @@ public class GenericHeap {
         return;
       }
     }
+  }
+
+  public int findKthSmallestElement(int[] input, int k) {
+    GenericHeap heap = new GenericHeap();
+    for (int num : input) {
+      heap.insert(num);
+      if (heap.getHeap().size() > k) {
+        heap.remove();
+      }
+    }
+    return heap.remove();
   }
 }
 

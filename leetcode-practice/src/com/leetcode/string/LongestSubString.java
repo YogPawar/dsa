@@ -1,31 +1,30 @@
 package com.leetcode.string;
 
+import java.beans.PropertyEditorSupport;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 import javax.swing.plaf.ProgressBarUI;
 
 public class LongestSubString {
 
   public static void main(String[] args) {
-    System.out.println(lengthOfLongestSubstring("abcd"));
+    System.out.println(longLenghtOfSubstring("abcdeaa"));
   }
 
-  public static int lengthOfLongestSubstring(String s) {
-    int n = s.length();
-    int maxLength = 0;
-    Set<Character> charSet = new HashSet<>();
-    int left = 0;
-    for (int right = 0; right < n; right++) {
-      if (!charSet.contains(s.charAt(right))) {
-        charSet.add(s.charAt(right));
-        maxLength = Math.max(maxLength, right - left + 1);
-      } else {
-        while (charSet.contains(s.charAt(right))) {
-          charSet.remove(s.charAt(left));
-          left++;
-        }
-        charSet.add(s.charAt(right));
+  private static int longLenghtOfSubstring(String s) {
+    int maxLength = Integer.MIN_VALUE;
+    int leftIndex = 0;
+    Map<Character, Integer> mapIndex = new HashMap<>();
+    for (int rightIndex = 0; rightIndex < s.length(); rightIndex++) {
+      char c = s.charAt(rightIndex);
+      if (mapIndex.containsKey(c)) {
+        leftIndex = Math.max(leftIndex, mapIndex.get(c));
       }
+      mapIndex.put(c, rightIndex + 1);
+      maxLength = Math.max(maxLength, rightIndex - leftIndex + 1);
     }
     return maxLength;
   }

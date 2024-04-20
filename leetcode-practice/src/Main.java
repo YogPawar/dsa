@@ -6,12 +6,17 @@ public class Main {
     while (sum > 0) {
       int digit = sum % 10;
       sum /= 10;
-      System.out.print(digit);
+
+      if (sum < 0) {
+        digit = digit * -1;
+      }
+
+
     }
   }
 
   public static void main(String[] args) {
-    printPat(12345);
+    System.out.println();
   }
 
 }

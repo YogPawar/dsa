@@ -24,7 +24,7 @@ public class PairCounter {
   //do it in o(n)
   public static int pair(int[] nums) {
     int ans = 0;
-    int[] freq = new int[nums.length * nums.length];
+    int[] freq = new int[101];
     for (int x = 0; x < nums.length; x++) {
       ans += freq[nums[x]];
       freq[nums[x]]++;

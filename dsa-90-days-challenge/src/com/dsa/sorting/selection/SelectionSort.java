@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SelectionSort {
 
-  private static int[] sort(int[] nums) {
+  private static void sort(int[] nums) {
     for (int i = 0; i < nums.length; i++) {
       int minIndex = i; //considering the i is minimum element
       for (int j = i + 1; j < nums.length; j++) {
@@ -13,15 +13,21 @@ public class SelectionSort {
           minIndex = j;
         }
       }
-      int temp = nums[minIndex];
-      nums[minIndex] = nums[i];
-      nums[i] = temp;
+
+      if (i != minIndex) {
+        //if i and midIndex is same then it is already sorted no need to swap the element
+        int temp = nums[minIndex];
+        nums[minIndex] = nums[i];
+        nums[i] = temp;
+      }
 
     }
-    return nums;
   }
 
   public static void main(String[] args) {
-    System.out.println(Arrays.toString(sort(new int[]{3, 5, 6, 2, 1, 8, 91, 100})));
+    int[] nums = {3, 5, 6, 2, 1, 8, 91, 100};
+    System.out.println("Before sort : " + Arrays.toString(nums));
+    sort(nums);
+    System.out.println("After sort : " + Arrays.toString(nums));
   }
 }

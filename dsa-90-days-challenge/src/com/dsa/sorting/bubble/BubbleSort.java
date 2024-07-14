@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class BubbleSort {
 
-  private static int[] sort(int[] nums) {
+  private static void sort(int[] nums) {
     //Traverse from end to start so every iteration value at last index will be sorted.
     for (int i = nums.length - 1; i >= 0; i--) {
       for (int j = 0; j < i; j++) {
@@ -16,10 +16,13 @@ public class BubbleSort {
         }
       }
     }
-    return nums;
   }
 
   public static void main(String[] args) {
-    System.out.println(Arrays.toString(sort(new int[]{6, 4, 5, 3, 1, 9})));
+    int[] nums = {6, 4, 5, 3, 1, 9};
+    System.out.println("Before sort : " + Arrays.toString(nums));
+
+    sort(nums);
+    System.out.println("After sort : " + Arrays.toString(nums));
   }
 }

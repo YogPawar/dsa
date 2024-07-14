@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class InsertionSort {
 
-  private static int[] sort(int[] nums) {
+  private static void sort(int[] nums) {
     //in insertion sort we start from 1st index and do compare it with left values.
     for (int i = 1; i < nums.length; i++) {
       int temp = nums[i]; //sotored the 1st element into temp for comparison
@@ -15,11 +15,14 @@ public class InsertionSort {
         j--; //decrement the j to compare with all left side elements
       }
     }
-    return nums;
   }
 
   public static void main(String[] args) {
-    System.out.println(Arrays.toString(sort(new int[]{4, 1, 6, 8, 9, 10, 3, 2})));
+    int[] nums = {4, 1, 6, 8, 9, 10, 3, 2};
+    System.out.println("Before sort : " + Arrays.toString(nums));
+
+    sort(nums);
+    System.out.println("After sort : " + Arrays.toString(nums));
   }
 
 }

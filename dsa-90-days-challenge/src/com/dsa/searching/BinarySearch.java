@@ -1,46 +1,39 @@
 package com.dsa.searching;
 
+import java.util.Arrays;
+
 public class BinarySearch {
 
-  private static int search(int[] nums, int value) {
-    int startIndex = 0;
-    int endIndex = nums.length - 1;
-    while (startIndex <= endIndex) {
-      int mid = startIndex + (endIndex - startIndex) / 2;
-      if (nums[mid] == value) {
-        return mid;
-      }
-
-      if (nums[mid] < value) {
-        startIndex = mid + 1;
-      } else {
-        endIndex = mid - 1;
-      }
-    }
-    return -1;
-  }
 
   private static int binarySearch(int[] nums, int value) {
     int start = 0;
     int end = nums.length - 1;
-    int midIndex = (start + end) / 2;
-    while (nums[midIndex] != value) {
-      if (value < nums[midIndex]) {
-        end = midIndex - 1;
-      } else {
-        start = midIndex + 1;
+    while (start <= end) {
+      int mid = (start + end) / 2;
+      if (nums[mid] == value) {
+        return mid;
       }
-      midIndex = (start + end) / 2;
+      if (nums[mid] < value) {
+        start = mid + 1;
+      } else {
+        end = mid - 1;
+      }
     }
-    return midIndex;
+
+    return -1;
   }
 
   public static void main(String[] args) {
     int[] nums = {4, 5, 6, 7, 0, 1, 2};
-    System.out.println(searchIndex(nums, 0));
+    System.out.println(searchRoatedSortedArray(nums, 0));
+
+    int[] sortedArray = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    System.out.println(
+        "Sorted Array : " + Arrays.toString(sortedArray) + "\nSearch Element : " + 3);
+    System.out.println("Value found at index : " + binarySearch(sortedArray, 3));
   }
 
-  public static int searchIndex(int[] nums, int target) {
+  public static int searchRoatedSortedArray(int[] nums, int target) {
     int low = 0;
     int high = nums.length - 1;
     while (low <= high) {

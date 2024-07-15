@@ -8,12 +8,10 @@ public class SelectionSort {
     for (int i = 0; i < nums.length; i++) {
       int minIndex = i; //considering the i is minimum element
       for (int j = i + 1; j < nums.length; j++) {
-        if (nums[minIndex]
-            > nums[j]) { // if nums[j] is smaller than value at minIndex then set minIndex to j
+        if (nums[minIndex] > nums[j]) { // if nums[j] is smaller than value at minIndex then set minIndex to j
           minIndex = j;
         }
       }
-
       if (i != minIndex) {
         //if i and midIndex is same then it is already sorted no need to swap the element
         int temp = nums[minIndex];

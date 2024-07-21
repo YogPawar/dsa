@@ -2,6 +2,8 @@ package com.book.dsa.recursion;
 
 public class FibonacciNumber {
 
+  static int a = 0, b = 1, c = 0;
+
   private static int fibonacciNumber(int n) {
     if (n <= 1) {
       return n;
@@ -24,9 +26,19 @@ public class FibonacciNumber {
     }
   }
 
+  private static void fibonacee(int n) {
+    if (n > -1) {
+      c = a + b;
+      a = b;
+      b = c;
+      System.out.print(" " + c);
+      fibonacee(n - 1);
+    }
+
+  }
+
 
   public static void main(String[] args) {
-    System.out.println(fibonacciNumber(9));
-    printFibonacee(9);
+    fibonacee                         (9);
   }
 }

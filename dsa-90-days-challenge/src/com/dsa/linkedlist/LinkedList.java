@@ -85,15 +85,40 @@ public class LinkedList<T extends Comparable<T>> {
     }
   }
 
-  class Node<T extends Comparable<T>> {
-
-    T data;
-    Node<T> next;
-
-    public Node(T data) {
-      this.data = data;
+  public Node<T> removeFromBegin() {
+    Node<T> node = head;
+    if (node != null) {
+      head = node.next;
+      node.next = null;
+      size -= 1;
     }
 
+    return node;
+  }
+
+  public Node<T> removeFromEnd() {
+    Node<T> node = head;
+    Node<T> previous = node;
+    while (node.next != null) {
+      previous = node;
+      node = node.next;
+    }
+    previous.next = null;
+    tail = previous;
+    size -= 1;
+    return node;
+  }
+}
+
+class Node<T extends Comparable<T>> {
+
+  protected T data;
+  Node<T> next;
+
+  public Node(T data) {
+    this.data = data;
   }
 
 }
+
+

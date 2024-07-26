@@ -1,4 +1,4 @@
-package com.book.dsa.recursion;
+package com.book.recursion;
 
 public class Factorial {
 

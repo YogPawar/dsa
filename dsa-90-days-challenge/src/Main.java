@@ -4,17 +4,21 @@ import java.util.List;
 
 public class Main {
 
-  public static void main(String[] args) {
-    List<String> test = new ArrayList<>();
-    test.add("A");
-    test.add("B");
-    test.add("C");
-    Iterator<String> itr = test.listIterator();
-    itr.next();
-    itr.remove();
-    itr.next();
-    itr.remove();
+  private static void towerOfHanoi(int plates, char source, char destination, char auxilary) {
+    //base case
+    if (plates == 0) {
+      return;
+    }
+    //shift the plate from source to destination with the help of auxilary pliiter
+    towerOfHanoi(plates - 1, source, auxilary, destination);
+    System.out.println(
+        "Moved disk [" + plates + "]  from : " + source + " to : " + destination);
+    //shift the plates from auxilary  to destination
+    towerOfHanoi(plates - 1, auxilary, destination, source);
+  }
 
-    System.out.println(test);
+  public static void main(String[] args) {
+    towerOfHanoi(3, 'A', 'B', 'C');
+
   }
 }

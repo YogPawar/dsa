@@ -108,7 +108,31 @@ public class LinkedList<T extends Comparable<T>> {
     size -= 1;
     return node;
   }
+
+  public Node<T> remove(T data) {
+    if (head.data == data) {
+      removeFromBegin();
+    } else if (tail.data == data) {
+      removeFromEnd();
+    } else {
+      Node<T> previous = head;
+      Node<T> next = head.next;
+      while (next != null) {
+        if (next.data == data) {
+          previous.next = next.next;
+          next.next = null;
+          size--;
+          return next;
+        }
+        previous = next;
+        next = next.next;
+
+      }
+    }
+    return null;
+  }
 }
+
 
 class Node<T extends Comparable<T>> {
 

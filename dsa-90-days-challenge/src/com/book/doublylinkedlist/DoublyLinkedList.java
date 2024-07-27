@@ -42,10 +42,12 @@ public class DoublyLinkedList {
 
   public void printDLL() {
     DLLNode temp = head;
+    System.out.print("DLList : ");
     while (temp != null) {
       System.out.print(temp.getData() + " ");
       temp = temp.getNext();
     }
+    System.out.println();
   }
 
   public int getHead() {
@@ -62,5 +64,63 @@ public class DoublyLinkedList {
 
   public void setSize(int size) {
     this.size = size;
+  }
+
+  public DLLNode deleteFirst() {
+    if (head == null) {
+      return null;
+    }
+    DLLNode nodeToDelete = head;
+    head = nodeToDelete.getNext();
+    head.setPrev(null);
+    nodeToDelete.setNext(null);
+    size -= 1;
+    return nodeToDelete;
+  }
+
+  public DLLNode deleteLast() {
+    if (head == null) {
+      return null;
+    }
+    DLLNode nodeToDelete = head;
+    while (nodeToDelete.getNext() != null) { //terminate once reach to last node
+      nodeToDelete = nodeToDelete.getNext();
+    }
+    DLLNode previous = nodeToDelete.getPrev();
+    nodeToDelete.setPrev(null); //remove the previous connection
+    previous.setNext(null); //remove next connection
+    size -= 1;
+    return nodeToDelete;
+  }
+
+  /**
+   * Delete the intermediate element
+   *
+   * @param data
+   * @return
+   */
+  public DLLNode findAndDelete(int data) {
+    if (head == null) {
+      return null;
+    } else if (head.getData() == data) {
+      return deleteFirst();
+    } else {
+      DLLNode nodeToDelete = head;
+      while (nodeToDelete.getNext() != null) { //traverse till last element
+        if (nodeToDelete.getData() == data) {
+          nodeToDelete.getPrev().setNext(nodeToDelete.getNext());
+          nodeToDelete.getNext().setPrev(nodeToDelete.getPrev());
+          nodeToDelete.setPrev(null);
+          nodeToDelete.setNext(null);
+          size -= 1;
+          return nodeToDelete;
+        }
+        nodeToDelete = nodeToDelete.getNext();
+      }
+      if (nodeToDelete.getData() == data) {
+        return deleteLast();
+      }
+    }
+    return null;
   }
 }

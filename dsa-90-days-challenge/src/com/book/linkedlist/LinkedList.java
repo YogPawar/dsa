@@ -52,6 +52,10 @@ public class LinkedList<T extends Comparable<T>> {
     return head.data;
   }
 
+  public Node<T> head() {
+    return head;
+  }
+
   public T getTail() {
     return tail.data;
   }

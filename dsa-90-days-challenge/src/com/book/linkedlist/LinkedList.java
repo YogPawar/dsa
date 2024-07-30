@@ -7,6 +7,10 @@ public class LinkedList<T extends Comparable<T>> {
   Node<T> tail;
   private int size;
 
+  public LinkedList() {
+
+  }
+
   public LinkedList(T data) {
     Node<T> newNode = new Node<>(data);
     head = newNode;
@@ -28,13 +32,13 @@ public class LinkedList<T extends Comparable<T>> {
 
 
   public void append(T data) {
-    Node<T> newNOde = new Node<>(data);
+    Node<T> newNode = new Node<>(data);
     if (tail == null) {
-      newNOde = tail;
-      head = newNOde;
+      tail = newNode;
+      head = newNode;
     } else {
-      tail.next = newNOde;
-      tail = newNOde;
+      tail.next = newNode;
+      tail = newNode;
     }
     size += 1;
 
@@ -132,17 +136,3 @@ public class LinkedList<T extends Comparable<T>> {
     return null;
   }
 }
-
-
-class Node<T extends Comparable<T>> {
-
-  protected T data;
-  Node<T> next;
-
-  public Node(T data) {
-    this.data = data;
-  }
-
-}
-
-

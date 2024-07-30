@@ -3,7 +3,7 @@ package com.book.linkedlist;
 public class ListRunner {
 
   public static void main(String[] args) {
-    LinkedList<Integer> ll = new LinkedList<>(5);
+    LinkedList<Integer> ll = new LinkedList<>();
     ll.append(3);
     ll.append(10);
     ll.append(11);

@@ -18,7 +18,13 @@ public class Main {
   }
 
   public static void main(String[] args) {
-    towerOfHanoi(3, 'A', 'B', 'C');
+    List<String> longLivedList = new ArrayList<>();
+    for (int i = 0; i < 100; i++) {
+      for (int j = 0; j < 10_000; j++) {
+        String shortLivedString = "ShortLived-" + i + "_" + j;
+      }
+      longLivedList.add("LonLive-" + i);
+    }
 
   }
 }

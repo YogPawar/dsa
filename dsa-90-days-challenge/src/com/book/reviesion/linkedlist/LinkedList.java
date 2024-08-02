@@ -136,7 +136,7 @@ public class LinkedList {
   }
 
   public void printList() {
-    if (isEmpty()) {
+    if (!isEmpty()) {
       Node temp = head;
       while (temp != null) {
         System.out.print(temp.getData() + " ");

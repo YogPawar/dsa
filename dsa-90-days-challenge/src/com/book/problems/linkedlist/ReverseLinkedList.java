@@ -13,8 +13,12 @@ public class ReverseLinkedList {
     linkedList.add(4);
 
     System.out.println(linkedList.getHead());
-    Node reverseNode = reverseList(linkedList.getHead());
-    System.out.println(reverseNode);
+   // Node reverseNode = reverseList(linkedList.getHead());
+   // System.out.println(reverseNode);
+
+    Node reverse = reversePractice(linkedList.getHead());
+    System.out.println(reverse);
+
   }
 
   /**
@@ -38,4 +42,20 @@ public class ReverseLinkedList {
     return revserseNode;
   }
 
+
+  private static Node reversePractice(Node head) {
+    Node previous = null;
+    Node current = head;
+    while (current != null) {
+      //take temporary variable to point next of current
+      Node next = current.getNext();
+      //set current next = previous
+      current.setNext(previous);
+      //update previous
+      previous = current;
+      //update current
+      current = next;
+    }
+    return previous;
+  }
 }

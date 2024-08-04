@@ -3,7 +3,7 @@ package com.book.problems.linkedlist;
 import com.book.reviesion.linkedlist.LinkedList;
 import com.book.reviesion.linkedlist.Node;
 
-public class MergeTwoSortedList {
+public class MergeTwoSortedListRecursion {
 
   public static void main(String[] args) {
     LinkedList ll = new LinkedList();

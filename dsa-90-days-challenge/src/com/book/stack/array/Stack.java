@@ -60,11 +60,19 @@ public class Stack {
     return data;
   }
 
+
+  //TC O(n) to scan and print the all element
   public void printStack() {
     System.out.print("[ ");
     for (int i : stack) {
       System.out.print(i + " ");
     }
     System.out.print("]");
+  }
+
+  //TC O(1)
+  public void deleteStack() {
+    stack = null;
+    top = -1;
   }
 }

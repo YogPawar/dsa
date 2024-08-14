@@ -1,6 +1,9 @@
-package com.book.queue;
+package com.book.queue.arraybased;
 
-public class Queue {
+import com.book.queue.IQueue;
+import com.book.queue.QueueFullException;
+
+public class Queue implements IQueue {
 
   private final int DEFAULT_CAPACITY = 16;
   private final int[] queue;
@@ -13,6 +16,7 @@ public class Queue {
     queue = new int[DEFAULT_CAPACITY];
     front = 0;
     rear = -1;
+    size = 0;
     this.capacity = DEFAULT_CAPACITY;
   }
 
@@ -21,27 +25,33 @@ public class Queue {
     queue = new int[capacity];
     front = 0;
     rear = -1;
+    size = 0;
   }
 
-  public void enqueue(int data) {
+  //Add the element into Queue
+  public void enQueue(int data) {
     if (size() >= capacity) {
       throw new QueueFullException("Queue is full");
     } else {
-      queue[size++] = data;
-      rear++;
+      queue[++rear] = data;
+      size++;
     }
   }
 
-  public int dequeue() {
+  //Remove the element from the queue. Start from the front.
+  public int deQueue() {
     if (size() < 0) {
-      throw new QueueEmptyException("Queue is empty");
+      throw new IllegalStateException("Queue is empty");
+    } else {
+      int data = queue[front];
+      queue[front++] = 0;
+      size--;
+      return data;
     }
-
-    return 0;
   }
 
   public int getFront() {
-    return queue[front];
+    return (front > capacity - 1 || rear < 0) ? 0 : queue[front];
   }
 
   public void setFront(int front) {
@@ -66,5 +76,22 @@ public class Queue {
 
   public int size() {
     return this.size;
+  }
+
+  public boolean isEmpty() {
+    return size == 0;
+  }
+
+  @Override
+  public boolean isFull() {
+    return size == capacity;
+  }
+
+  @Override
+  public void print() {
+    for (int i : queue) {
+      System.out.print(i + " ");
+    }
+    System.out.println();
   }
 }

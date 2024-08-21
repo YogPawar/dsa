@@ -5,13 +5,13 @@ public class BstMain {
   public static void main(String[] args) {
     BinarySearchTree bst = new BinarySearchTree();
 
-    bst.insert(47);
-    bst.insert(21);
-    bst.insert(76);
-    bst.insert(18);
-    bst.insert(27);
-    bst.insert(52);
-    bst.insert(82);
+    bst.insert(10);
+    bst.insert(9);
+    bst.insert(11);
+    bst.insert(7);
+    bst.insert(12);
+    bst.insert(5);
+    bst.insert(44);
 
     System.out.println("BFS" + bst.BFS());
     System.out.println("DFS-PreOrder" + bst.DFSPreOrder());

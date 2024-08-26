@@ -2,18 +2,18 @@ package com.book.tree;
 
 public class BinaryTreeRecursion {
 
-  BinaryTreeNode root;
+  TreeNode root;
 
-  public BinaryTreeNode insert(int data) {
+  public TreeNode insert(int data) {
     if (root == null) {
-      root = new BinaryTreeNode(data);
+      root = new TreeNode(data);
     }
     return insert(root, data);
   }
 
-  private BinaryTreeNode insert(BinaryTreeNode currentNode, int data) {
+  private TreeNode insert(TreeNode currentNode, int data) {
     if (currentNode == null) {
-      return new BinaryTreeNode(data);
+      return new TreeNode(data);
     }
     if (data < currentNode.getData()) {
       currentNode.setLeft(insert(currentNode.getLeft(), data));
@@ -25,7 +25,7 @@ public class BinaryTreeRecursion {
 
   //traverse the tree.
 
-  public void preOrder(BinaryTreeNode root) {
+  public void preOrder(TreeNode root) {
     if (root != null) {
       System.out.print(root.getData() + " ");
       preOrder(root.getLeft());
@@ -33,7 +33,7 @@ public class BinaryTreeRecursion {
     }
   }
 
-  public void inOrder(BinaryTreeNode root) {
+  public void inOrder(TreeNode root) {
     if (root != null) {
       inOrder(root.getLeft());
       System.out.print(root.getData() + " ");
@@ -41,7 +41,7 @@ public class BinaryTreeRecursion {
     }
   }
 
-  public void postOrder(BinaryTreeNode root) {
+  public void postOrder(TreeNode root) {
     if (root != null) {
       postOrder(root.getLeft());
       postOrder(root.getRight());

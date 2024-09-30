@@ -1,5 +1,7 @@
 package com.yogsoft.dsa.basic.array;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 public class SecondLargest {
 
   private static int secondLargest(int n, int[] arr) {
@@ -19,6 +21,7 @@ public class SecondLargest {
   public static void main(String[] args) {
     System.out.println(secondLargest(6, new int[]{-10, -40, -25, -25, -12, -10}));
     System.out.println(findSecondLargest(6, new int[]{-10, -40, -25, -25, -12, -10}));
+    ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
     // System.out.println(secondLargest(5, new int[]{-12, -10, -10, -6, -5}));
   }
 

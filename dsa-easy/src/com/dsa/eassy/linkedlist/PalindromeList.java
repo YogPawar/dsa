@@ -1,4 +1,4 @@
-package com.dsa.linkedlist;
+package com.dsa.eassy.linkedlist;
 
 public class PalindromeList {
 

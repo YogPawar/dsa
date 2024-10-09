@@ -82,17 +82,6 @@ public class BinarySearchTree {
     return currentNode;
   }
 
-  public class Node {
-
-    public int value;
-    public Node left;
-    public Node right;
-
-    Node(int value) {
-      this.value = value;
-    }
-  }
-
   public boolean insert(int value) {
     Node newNode = new Node(value);
     if (root == null) {
@@ -137,8 +126,6 @@ public class BinarySearchTree {
     return false;
   }
 
-  //Breadth First Search Traverse
-
   public ArrayList<Integer> BFS() {
     Node currentNode = root;
     Queue<Node> nodeQueue = new LinkedList<>();
@@ -156,6 +143,8 @@ public class BinarySearchTree {
     }
     return result;
   }
+
+  //Breadth First Search Traverse
 
   //DFS PreOrder Traverse
   public ArrayList<Integer> DFSPreOrder() {
@@ -212,5 +201,16 @@ public class BinarySearchTree {
     }
     new Traverse(root);
     return result;
+  }
+
+  public class Node {
+
+    public int value;
+    public Node left;
+    public Node right;
+
+    Node(int value) {
+      this.value = value;
+    }
   }
 }

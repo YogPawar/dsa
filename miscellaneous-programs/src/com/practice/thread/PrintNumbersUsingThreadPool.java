@@ -9,9 +9,8 @@ public class PrintNumbersUsingThreadPool {
     ExecutorService threadPool = Executors.newFixedThreadPool(5);
     for (int i = 1; i < 100; i++) {
       int num = i;
-      threadPool.submit(() -> {
-        System.out.println("Number : " + num + " Thread Name :" + Thread.currentThread().getName());
-      });
+      threadPool.submit(() -> System.out.println(
+          "Number : " + num + " Thread Name :" + Thread.currentThread().getName()));
     }
     threadPool.shutdown();
   }

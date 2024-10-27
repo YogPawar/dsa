@@ -36,7 +36,7 @@ public class QuickSort {
 
 
   public static void main(String[] args) {
-    int[] myArray = {4, 6, 1, 7, 3, 2, 5};
+    int[] myArray = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
 
     quickSort(myArray);
 

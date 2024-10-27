@@ -19,9 +19,19 @@ public class EmployeeMap {
 
   }
 
+  public static int getMaxSalary(List<Employee> employees) {
+    return employees.stream().mapToInt(Employee::getSalary).max().orElse(0);//
+    // getAsInt();
+  }
+
 
   public static void main(String[] args) {
     filterEmployee(EmployeeDB.getEemployeeMap());
+    System.out.println(getMaxSalary(EmployeeDB.getEmployees()));
+
+    int[] salary = {3444, 5647, 9807, 10345};
+    System.out.println(Arrays.stream(salary).max().orElse(0));//getAsInt());
+    System.out.println(Arrays.stream(salary).min().orElse(0));//getAsInt());
   }
 
 }

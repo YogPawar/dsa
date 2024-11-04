@@ -6,7 +6,6 @@ public class MergeSort {
 
   public static void main(String[] args) {
     int[] nums = {4, 3, 1, 2, 10, 8, 54};
-
     System.out.println(Arrays.toString(mergeSort(nums)));
   }
 
@@ -27,9 +26,29 @@ public class MergeSort {
     int leftIndex = 0;
     int rightIndex = 0;
     while (leftIndex < left.length && rightIndex < right.length) {
-
+      if (left[leftIndex] < right[rightIndex]) {
+        sortedArray[index] = left[leftIndex];
+        index++;
+        leftIndex++;
+      } else {
+        sortedArray[index] = right[rightIndex];
+        rightIndex++;
+        index++;
+      }
     }
-    return null;
+
+    while (leftIndex < left.length) {
+      sortedArray[index] = left[leftIndex];
+      leftIndex++;
+      index++;
+    }
+
+    while (rightIndex < right.length) {
+      sortedArray[index] = right[rightIndex];
+      rightIndex++;
+      index++;
+    }
+    return sortedArray;
   }
 
 }
